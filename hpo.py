@@ -60,7 +60,7 @@ def train(model, train_loader, test_loader, criterion, optimizer, use_cuda):
           data loaders for training and will get train the model
           Remember to include any debugging/profiling hooks that you might need
     '''
-    epochs = 5
+    epochs = 10
     train_loss = 0
     correct_pred = 0
 

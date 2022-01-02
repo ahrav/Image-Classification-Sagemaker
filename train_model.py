@@ -60,7 +60,7 @@ def train(model, train_loader, test_loader, criterion, optimizer, use_cuda, hook
     model.train()
     hook.set_mode(smd.modes.TRAIN)
 
-    epochs = 25
+    epochs = 10
     train_loss = 0
 
     for epoch in range(1, epochs+1):

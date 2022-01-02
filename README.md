@@ -7,6 +7,13 @@ Enter AWS through the gateway in the course and open SageMaker Studio.
 Download the starter files.
 Download/Make the dataset available.
 
+## Files used
+hpo.py - Used for the hyperparameter tuning phase.
+train_model.py - Used as the main training script after hyperparameters are deduced from the hpo.py script.
+inference.py - script used for the deployed endpoint in order to make inferences on live data.
+train_and_deploy.ipynb - main jupyter notebook with all the steps.
+profiler-report.* - report generated during training with the profiler hooks enabled.
+
 ## Dataset
 The provided dataset is the dogbreed classification dataset which can be found in the classroom.
 The project is designed to be dataset independent so if there is a dataset that is more interesting or relevant to your work, you are welcome to use it to complete the project.
@@ -16,6 +23,10 @@ Upload the data to an S3 bucket through the AWS Gateway so that SageMaker has ac
 
 ## Hyperparameter Tuning
 What kind of model did you choose for this experiment and why? Give an overview of the types of parameters and their ranges used for the hyperparameter search
+
+![Hp tuning](hp-tuning.png "hyper parameter tuning")
+![training](training.png "training job")
+
 
 Remember that your README should:
 - Include a screenshot of completed training jobs
