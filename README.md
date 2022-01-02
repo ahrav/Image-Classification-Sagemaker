@@ -24,7 +24,6 @@ Upload the data to an S3 bucket through the AWS Gateway so that SageMaker has ac
 ## Hyperparameter Tuning
 What kind of model did you choose for this experiment and why? Give an overview of the types of parameters and their ranges used for the hyperparameter search
 
-![Hp tuning](hp-tuning.png "hyper parameter tuning")
 ![training](training.png "training job")
 
 
