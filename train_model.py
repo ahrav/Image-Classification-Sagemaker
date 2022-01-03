@@ -75,6 +75,7 @@ def train(model, train_loader, test_loader, criterion, optimizer, use_cuda, hook
             optimizer.zero_grad()
             output = model(inputs)
             loss = criterion(output, labels)
+            hook.record_tensor_value(loss)
             loss.backward()
             optimizer.step()
 
@@ -167,15 +168,16 @@ def main(args):
     use_cuda = torch.cuda.is_available()
     model=net(use_cuda)
 
-    # Register SMDebug hook.
-    hook = smd.Hook.create_from_json_file()
-    hook.register_hook(model)
-
     train_loader, test_loader, validation_loader=create_data_loaders(args.data, args.batchsize)
 
     # Create your loss and optimizer
     criterion = nn.CrossEntropyLoss()
     optimizer = optim.SGD(model.fc.parameters(), lr=args.lr, momentum=0.5)
+
+    # Register SMDebug hook.
+    hook = smd.Hook.create_from_json_file()
+    hook.register_hook(model)
+    hook.register_loss(criterion)
 
     '''
     TODO: Call the train function to start training your model
